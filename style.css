@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-weight: 700;
+    text-align: center;
+    padding: 50px;
+}
+h4{
+    font-weight: 700;
+}
+.submit-area{
+    background-color: aliceblue;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px rgb(187, 187, 187);
+}
+.btn-success{
+    padding: 8px 30px;
+}
+#transaction-area{
+    display: none;
+    
+}
+.box{
+    background-color: aliceblue;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px rgb(187, 187, 187);
+}
+.submit-area h5{
+    font-weight: 700;
+}
+.status{
+    margin: 0 20px;
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgb(187, 187, 187);
+
+}
+.deposit{
+    background-color: slateblue;
+}
+.withdraw{
+background-color: lightsalmon;
+}
+.balance{
+    background-color: orange;
+}

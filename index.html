@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citi Bank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <section id="login-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1>Welcome To citi Bank</h1>
+                    <div class="submit-area">
+                        <h4 class="pb-3">Log In</h4>
+                        <input class="form-control" type="email" name="" id="" placeholder="Email" width="100%">
+                        <input class="form-control mt-2" type="password" name="" id="" placeholder="Password">
+                        <button id="login" class="btn btn-success log-in-btn mt-3">Enter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="transaction-area">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Transaction Area</h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="deposit status">
+                        <h5>Deposit</h5>
+                        <h2>$ <span id="currentDeposit">00</span> </h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="withdraw status">
+                        <h5>Withdraw</h5>
+                        <h2>$00</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="balance status">
+                        <h5>Balance</h5>
+                        <h2>$ <span id="currentBalance">1240</span> </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="submit-area">
+                        <h5 class="pb-3">Deposit</h5>
+                        <input id="depositAmount" class="form-control" type="text" name=""
+                            placeholder="$ amount you want to deposit" width="100%">
+                        <button id="addDeposit" class="btn btn-success mt-3">Deposit</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="submit-area">
+                        <h5 class="pb-3">Withdraw</h5>
+                        <input class="form-control" type="text" name="" id=""
+                            placeholder="$ amount you want to withdraw" width="100%">
+                        <button id="withdraw" class="btn btn-success mt-3">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+        //login Button event handler
+        const loginBtn = document.getElementById('login');
+        loginBtn.addEventListener('click', function () {
+            const loginArea = document.getElementById("login-area");
+            loginArea.style.display = "none";
+            const transactionArea = document.getElementById('transaction-area');
+            transactionArea.style.display = "block"
+        })
+
+        //Deposit Button event handler
+        const depositBtn = document.getElementById("addDeposit");
+        depositBtn.addEventListener('click', function () {
+            const depositAmount = document.getElementById('depositAmount').value;
+            const depositNumber = parseFloat(depositAmount); //converted to Number from string
+
+            //for Deposit cart
+            const currentDeposit = document.getElementById('currentDeposit').innerHTML;
+            const currentDepositNumber = parseFloat(currentDeposit); //converted to Number from string
+            const totalDeposit = depositNumber + currentDepositNumber;
+            document.getElementById('currentDeposit').innerHTML = totalDeposit; //amount pushed to deposit cart
+
+            //for Balance cart
+            const currentBalance = document.getElementById('currentBalance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = depositNumber + currentBalanceNumber; // added deposit amount to current balance
+            document.getElementById('currentBalance').innerText = totalBalance; //amount pushed to total cart
+
+            document.getElementById('depositAmount').value = ""; // for emptying deposit field after input
+
+
+            // if i do upper four line work throughout a function then 
+
+            function updateSpanText() {
+                const currentBalance = document.getElementById('currentBalance').innerText;
+                const currentBalanceNumber = parseFloat(currentBalance);
+                const totalBalance = depositNumber + currentBalanceNumber; // added deposit amount to current balance
+                document.getElementById('currentBalance').innerText = totalBalance; //amount pushed to total cart
+            }
+
+        })
+
+        //Balance Button event handler
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
