@@ -44,7 +44,7 @@
                 <div class="col-md-4">
                     <div class="withdraw status">
                         <h5>Withdraw</h5>
-                        <h2>$00</h2>
+                        <h2>$ <span id="currentWithdraw">00</span></h2>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -96,11 +96,7 @@
             //Calling Function for getting input Deposit amount
             const depositNumber = getInputNumber('depositAmount'); //converted to Number from string
 
-            //for Deposit cart
             updateSpantext("currentDeposit", depositNumber);
-
-            //for Balance cart
-
             updateSpantext("currentBalance", depositNumber);
 
 
@@ -117,9 +113,13 @@
         withdrawBtn.addEventListener('click', function () {
             const withdrawNumber = getInputNumber('withdrawAmount');
 
+            updateSpantext('currentWithdraw', withdrawNumber)
+            updateSpantext("currentBalance", -1 * withdrawNumber);
 
 
+            document.getElementById('withdrawAmount').value = ""; // for emptying withdraw field after input 
         })
+
 
         //For getting  Input value
         function getInputNumber(id) {
